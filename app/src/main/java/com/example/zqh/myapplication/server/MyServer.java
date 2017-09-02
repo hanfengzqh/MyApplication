@@ -1,4 +1,4 @@
-package com.example.zqh.myapplication;
+package com.example.zqh.myapplication.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;

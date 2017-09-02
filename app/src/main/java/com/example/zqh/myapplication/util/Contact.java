@@ -1,4 +1,4 @@
-package com.example.zqh.myapplication;
+package com.example.zqh.myapplication.util;
 
 /**
  * Created by zqh on 2017/9/2.
