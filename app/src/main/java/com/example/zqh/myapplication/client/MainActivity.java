@@ -1,15 +1,22 @@
 package com.example.zqh.myapplication.client;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.zqh.myapplication.R;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.net.MalformedURLException;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button send;
@@ -17,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView show;
     private Handler handler;
     private ClientThread clientThread;
+
+    public MainActivity() throws MalformedURLException {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                if (msg.what == 0x123){
-                show.append(msg.obj.toString());
+                if (msg.what == 0x123) {
+                    show.append(msg.obj.toString());
                 }
             }
         };
@@ -49,5 +59,19 @@ public class MainActivity extends AppCompatActivity {
                 input.setText("");
             }
         });
+
+        try {
+            FileOutputStream outputStream = openFileOutput("test.png", MODE_PRIVATE);
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        WebView wb = new WebView(this);
+        WebSettings settings = wb.getSettings();
+        settings.setJavaScriptEnabled(true);
+
     }
+
 }
