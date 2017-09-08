@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 clientThread.reHandler.sendMessage(msg);
                 //清空文本框
                 input.setText("");
+
+
+
             }
         });
     }
